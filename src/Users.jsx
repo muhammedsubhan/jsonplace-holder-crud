@@ -7,7 +7,6 @@ const Users = ({ id, name, email, onDelete }) => {
         <span>{id}</span>
         <span>{name}</span>
         <span>{email}</span>
-        <button>Edit</button>
         <button onClick={() => onDelete(id)}>Delete</button>
       </div>
     </>
