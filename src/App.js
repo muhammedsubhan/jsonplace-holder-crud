@@ -31,6 +31,18 @@ const App = () => {
     setUsers((users) => [...users, data]);
   };
 
+  const onDelete = async (id) => {
+    await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+      method: "DELETE",
+    });
+
+    setUsers(
+      users.filter((user) => {
+        return user.id !== id;
+      })
+    );
+  };
+
   return (
     <>
       <div className="App">
@@ -45,7 +57,7 @@ const App = () => {
                 key={item.id}
                 name={item.name}
                 email={item.email}
-              
+                onDelete={onDelete}
               />
             );
           })}
